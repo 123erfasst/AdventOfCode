@@ -1,0 +1,3 @@
+#!/bin/bash
+
+python src/day$1.py
