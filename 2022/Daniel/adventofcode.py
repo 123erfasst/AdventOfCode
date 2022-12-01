@@ -2,10 +2,10 @@ import argparse
 
 import days.day1 as day1
 
-def get_arguments():
+def get_arguments(numberOfDays: int):
     parser = argparse.ArgumentParser()
     parser.add_argument("day", type=int,
-                        choices=[i for i in range(1, 25)],
+                        choices=[i for i in range(1, numberOfDays + 1)],
                         help="Day of the Advent of Code")
 
     args = parser.parse_args()
@@ -13,15 +13,13 @@ def get_arguments():
     return args
 
 def main() -> None:
-    args = get_arguments()
+    days = [
+        day1.run
+    ]
 
-    match args.day:
-        case 1:
-            day1.run()
-            return
+    args = get_arguments(len(days))
 
-
-    print(args)
+    days[args.day - 1]()
 
 
 if __name__ == "__main__":
