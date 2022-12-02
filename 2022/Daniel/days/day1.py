@@ -2,7 +2,7 @@ from typing import Iterator
 
 from . import helper
 
-def addGroups(list: Iterator[str]) -> Iterator[int]:
+def add_groups(list: Iterator[str]) -> Iterator[int]:
     sum: int = 0
     for item in list:
         if not item:
@@ -23,9 +23,9 @@ def max(iterator: Iterator[int]) -> int:
     return ret
 
 def run():
-    file: Iterator[str] = helper.loadFile("input/day1.txt")
+    file: Iterator[str] = helper.load_file("input/day1.txt")
 
-    sums: list[int] = list(addGroups(file))
+    sums: list[int] = list(add_groups(file))
 
     print(f"Max: {max(iter(sums))}")
 
