@@ -8,7 +8,8 @@ main();
 
 void main()
 {
-   Day1.Resolve();
+   // Day1.Resolve();
+    Day2.Resolve();
 
     Console.ReadKey();
 

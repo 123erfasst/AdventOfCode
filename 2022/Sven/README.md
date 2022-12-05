@@ -10,6 +10,6 @@ Save the session key from https://adventofcode.com/ to .env file in the variable
 
 ## Execute
 
-First create a venv and install deps with ```pip install -r deps.txt --extra-index-url https://pip.sh-edraft.de```
+First create a venv and install deps with ```pip install -r deps.txt --upgrade --extra-index-url https://pip.sh-edraft.de```
 
 Then run code easily with ```./run {Number-of-day}```
