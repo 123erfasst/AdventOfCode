@@ -1,4 +1,9 @@
+from typing import Optional
+
 from cpl_core.console import Console
+from cpl_core.utils import String
+from cpl_query.enumerable import Enumerable
+from cpl_query.extension import List
 from cpl_core.pipes import *
 
 from aoc.aoc import get_input
