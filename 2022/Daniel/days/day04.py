@@ -36,7 +36,7 @@ def is_intersecting(item: tuple[range, range]) -> bool:
 def run():
     # Round 1
 
-    file: Iterator[str] = helper.load_file("input/day4.txt")
+    file: Iterator[str] = helper.load_file("input/day04.txt")
 
     pairs: Iterator[tuple[range, range]] = parse_groups(file)
 
@@ -46,7 +46,7 @@ def run():
 
     # Round 2
 
-    file: Iterator[str] = helper.load_file("input/day4.txt")
+    file: Iterator[str] = helper.load_file("input/day04.txt")
 
     pairs: Iterator[tuple[range, range]] = parse_groups(file)
 

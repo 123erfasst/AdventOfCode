@@ -78,7 +78,7 @@ def get_points_result(match: tuple[RockPaperScissors, WinLoseDraw]) -> int:
 def run():
     # Round 1
 
-    file: Iterator[str] = helper.load_file("input/day2.txt")
+    file: Iterator[str] = helper.load_file("input/day02.txt")
 
     matches: Iterator[tuple[RockPaperScissors, RockPaperScissors]] = parse_file_direct(file)
 
@@ -90,7 +90,7 @@ def run():
 
     # Round 2
 
-    file: Iterator[str] = helper.load_file("input/day2.txt")
+    file: Iterator[str] = helper.load_file("input/day02.txt")
 
     matches: Iterator[tuple[RockPaperScissors, WinLoseDraw]] = parse_file_result(file)
     

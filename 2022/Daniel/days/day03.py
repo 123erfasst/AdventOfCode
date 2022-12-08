@@ -48,7 +48,7 @@ def find_matching_3(packages: Iterator[tuple[str, str]]) -> Iterator[str]:
 def run():
     # Round 1
 
-    file: Iterator[str] = helper.load_file("input/day3.txt")
+    file: Iterator[str] = helper.load_file("input/day03.txt")
 
     packages: Iterator[tuple[str, str]] = split_rucksack(file)
 
@@ -60,7 +60,7 @@ def run():
 
     # Round 2
 
-    file: Iterator[str] = helper.load_file("input/day3.txt")
+    file: Iterator[str] = helper.load_file("input/day03.txt")
 
     groups: Iterator[tuple[str, str, str]] = group_lines(file)
 

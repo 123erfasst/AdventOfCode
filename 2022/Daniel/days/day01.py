@@ -23,7 +23,7 @@ def max(iterator: Iterator[int]) -> int:
     return ret
 
 def run():
-    file: Iterator[str] = helper.load_file("input/day1.txt")
+    file: Iterator[str] = helper.load_file("input/day01.txt")
 
     sums: list[int] = list(add_groups(file))
 
