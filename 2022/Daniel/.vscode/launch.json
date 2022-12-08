@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "adventofcode.py",
-            "args": ["7"],
+            "args": ["8"],
             "console": "integratedTerminal",
             "justMyCode": true
         }

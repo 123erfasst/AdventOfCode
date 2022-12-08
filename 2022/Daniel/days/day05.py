@@ -51,7 +51,7 @@ def run():
     # Round 1
     print("Round 1:")
 
-    file: Iterator[str] = helper.load_file("input/day5.txt")
+    file: Iterator[str] = helper.load_file("input/day05.txt")
 
     matrix: list[list[str]] = parse_file_matrix(file)
 
@@ -72,7 +72,7 @@ def run():
     # Round 2
     print("\n\nRound 2:")
 
-    file: Iterator[str] = helper.load_file("input/day5.txt")
+    file: Iterator[str] = helper.load_file("input/day05.txt")
 
     matrix: list[list[str]] = parse_file_matrix(file)
 

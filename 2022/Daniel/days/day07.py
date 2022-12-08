@@ -86,7 +86,7 @@ def run():
     # Round 1
     print("Round 1:")
 
-    file: Iterator[str] = helper.load_file("input/day7.txt")
+    file: Iterator[str] = helper.load_file("input/day07.txt")
 
     root: dir = generate_tree(file)
 

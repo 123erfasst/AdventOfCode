@@ -18,3 +18,14 @@ def count_true(iter: Iterator[bool]) -> int:
         counter += int(item)
 
     return counter
+
+def max(iterator: Iterator[int]) -> int:
+    ret: int = None
+    try:
+        ret = next(iterator)
+    except StopIteration:
+        return None
+    for val in iterator:
+        if val > ret:
+            ret = val
+    return ret

@@ -22,7 +22,7 @@ def run():
     # Round 1
     print("Round 1:")
 
-    file: Iterator[str] = helper.load_file("input/day6.txt")
+    file: Iterator[str] = helper.load_file("input/day06.txt")
 
     result: int = find_4_different(file)
 
@@ -31,7 +31,7 @@ def run():
     # Round 2
     print("Round 2:")
 
-    file: Iterator[str] = helper.load_file("input/day6.txt")
+    file: Iterator[str] = helper.load_file("input/day06.txt")
 
     result: int = find_14_different(file)
 
