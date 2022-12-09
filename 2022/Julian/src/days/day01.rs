@@ -1,7 +1,7 @@
 use crate::helper::solution::{Solution, SolutionPair};
 
 pub fn solve() -> SolutionPair {
-    let input = include_str!("./input.txt");
+    let input = include_str!("./input_day01.txt");
 
     (solve_part_1(input), solve_part_2(input))
 }
