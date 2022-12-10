@@ -28,18 +28,11 @@ def follow_point(h_pos: tuple[int, int], t_pos: tuple[int, int]) -> tuple[int, i
     x_diff = h_pos[0] - t_pos[0]
     y_diff = h_pos[1] - t_pos[1]
 
-    x_bias = 1 if x_diff > 0 else -1
-    y_bias = 1 if y_diff > 0 else -1
-
-    if x_diff == 0:
-        x_bias = 0
-    if y_diff == 0:
-        y_bias = 0
+    x_bias = 0 if x_diff == 0 else int(x_diff / abs(x_diff))
+    y_bias = 0 if y_diff == 0 else int(y_diff / abs(y_diff))
 
     if abs(x_diff) <= 1 and abs(y_diff) <= 1:
         return t_pos
-    elif (abs(x_diff) == 2 and abs(y_diff) == 0) or (abs(y_diff) == 2 and abs(x_diff) == 0):
-        return (t_pos[0] + x_bias, t_pos[1] + y_bias)
 
     return (t_pos[0] + x_bias, t_pos[1] + y_bias)
 
@@ -87,6 +80,7 @@ def run():
 
     for item in steps:
         result.add(item[1])
+        #print(item)
 
     print(f"Number of T positions: {len(result)}")
 
@@ -104,7 +98,7 @@ def run():
 
     for item in steps:
         result.add(item[9])
-        print(item)
+        #print(item)
 
     print(f"Number of <9> positions: {len(result)}")
 
