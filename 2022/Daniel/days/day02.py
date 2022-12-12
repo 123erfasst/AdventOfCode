@@ -4,73 +4,73 @@ from enum import Enum, unique
 from . import helper
 
 @unique
-class RockPaperScissors(Enum):
+class RPS(Enum):
     none = 0
     rock = 1
     paper = 2
     scissors = 3
 
-class WinLoseDraw(Enum):
+class WLD(Enum):
     win = 6
     lose = 0
     draw = 3
 
-def parse_file_direct(file: Iterator[str]) -> Iterator[tuple[RockPaperScissors, RockPaperScissors]]:
+def parse_file_direct(file: Iterator[str]) -> Iterator[tuple[RPS, RPS]]:
     wrapper: dict = {
-        "A": RockPaperScissors.rock,
-        "B": RockPaperScissors.paper,
-        "C": RockPaperScissors.scissors,
-        "X": RockPaperScissors.rock,
-        "Y": RockPaperScissors.paper,
-        "Z": RockPaperScissors.scissors
+        "A": RPS.rock,
+        "B": RPS.paper,
+        "C": RPS.scissors,
+        "X": RPS.rock,
+        "Y": RPS.paper,
+        "Z": RPS.scissors
     }
     for line in file:
         items: list[str] = line.split()
         yield (wrapper[items[0]] , wrapper[items[1]])
 
-def get_points_direct(match: tuple[RockPaperScissors, RockPaperScissors]) -> int:
+def get_points_direct(match: tuple[RPS, RPS]) -> int:
     wrapper: dict = {
-        (RockPaperScissors.rock, RockPaperScissors.rock) : WinLoseDraw.draw,
-        (RockPaperScissors.paper, RockPaperScissors.paper) : WinLoseDraw.draw,
-        (RockPaperScissors.scissors, RockPaperScissors.scissors) : WinLoseDraw.draw,
+        (RPS.rock,     RPS.rock) : WLD.draw,
+        (RPS.paper,    RPS.paper) : WLD.draw,
+        (RPS.scissors, RPS.scissors) : WLD.draw,
 
-        (RockPaperScissors.rock, RockPaperScissors.paper) : WinLoseDraw.win,
-        (RockPaperScissors.paper, RockPaperScissors.scissors) : WinLoseDraw.win,
-        (RockPaperScissors.scissors, RockPaperScissors.rock) : WinLoseDraw.win,
+        (RPS.rock,     RPS.paper) : WLD.win,
+        (RPS.paper,    RPS.scissors) : WLD.win,
+        (RPS.scissors, RPS.rock) : WLD.win,
 
-        (RockPaperScissors.paper, RockPaperScissors.rock) : WinLoseDraw.lose,
-        (RockPaperScissors.rock, RockPaperScissors.scissors) : WinLoseDraw.lose,
-        (RockPaperScissors.scissors, RockPaperScissors.paper) : WinLoseDraw.lose,
+        (RPS.paper,    RPS.rock) : WLD.lose,
+        (RPS.rock,     RPS.scissors) : WLD.lose,
+        (RPS.scissors, RPS.paper) : WLD.lose,
     }
     
     return match[1].value + wrapper[match].value
 
-def parse_file_result(file: Iterator[str]) -> Iterator[tuple[RockPaperScissors, WinLoseDraw]]:
+def parse_file_result(file: Iterator[str]) -> Iterator[tuple[RPS, WLD]]:
     wrapper: dict = {
-        "A": RockPaperScissors.rock,
-        "B": RockPaperScissors.paper,
-        "C": RockPaperScissors.scissors,
-        "X": WinLoseDraw.lose,
-        "Y": WinLoseDraw.draw,
-        "Z": WinLoseDraw.win
+        "A": RPS.rock,
+        "B": RPS.paper,
+        "C": RPS.scissors,
+        "X": WLD.lose,
+        "Y": WLD.draw,
+        "Z": WLD.win
     }
     for line in file:
         items: list[str] = line.split()
         yield (wrapper[items[0]] , wrapper[items[1]])
 
-def get_points_result(match: tuple[RockPaperScissors, WinLoseDraw]) -> int:
+def get_points_result(match: tuple[RPS, WLD]) -> int:
     wrapper: dict = {
-        (RockPaperScissors.rock, WinLoseDraw.draw) : RockPaperScissors.rock,
-        (RockPaperScissors.paper, WinLoseDraw.draw) : RockPaperScissors.paper,
-        (RockPaperScissors.scissors, WinLoseDraw.draw) : RockPaperScissors.scissors,
+        (RPS.rock,     WLD.draw) : RPS.rock,
+        (RPS.paper,    WLD.draw) : RPS.paper,
+        (RPS.scissors, WLD.draw) : RPS.scissors,
 
-        (RockPaperScissors.rock, WinLoseDraw.win) : RockPaperScissors.paper,
-        (RockPaperScissors.paper, WinLoseDraw.win) : RockPaperScissors.scissors,
-        (RockPaperScissors.scissors, WinLoseDraw.win) : RockPaperScissors.rock,
+        (RPS.rock,     WLD.win) : RPS.paper,
+        (RPS.paper,    WLD.win) : RPS.scissors,
+        (RPS.scissors, WLD.win) : RPS.rock,
 
-        (RockPaperScissors.paper, WinLoseDraw.lose) : RockPaperScissors.rock,
-        (RockPaperScissors.rock, WinLoseDraw.lose) : RockPaperScissors.scissors,
-        (RockPaperScissors.scissors, WinLoseDraw.lose) : RockPaperScissors.paper,
+        (RPS.paper,    WLD.lose) : RPS.rock,
+        (RPS.rock,     WLD.lose) : RPS.scissors,
+        (RPS.scissors, WLD.lose) : RPS.paper,
     }
     
     return match[1].value + wrapper[match].value
@@ -80,7 +80,7 @@ def run():
 
     file: Iterator[str] = helper.load_file("input/day02.txt")
 
-    matches: Iterator[tuple[RockPaperScissors, RockPaperScissors]] = parse_file_direct(file)
+    matches: Iterator[tuple[RPS, RPS]] = parse_file_direct(file)
 
     sum: int = 0
     for match in matches:
@@ -92,7 +92,7 @@ def run():
 
     file: Iterator[str] = helper.load_file("input/day02.txt")
 
-    matches: Iterator[tuple[RockPaperScissors, WinLoseDraw]] = parse_file_result(file)
+    matches: Iterator[tuple[RPS, WLD]] = parse_file_result(file)
     
     sum: int = 0
     for match in matches:

@@ -9,6 +9,9 @@ import days.day06 as day06
 import days.day07 as day07
 import days.day08 as day08
 import days.day09 as day09
+import days.day10 as day10
+import days.day11 as day11
+import days.day12 as day12
 
 def get_arguments(numberOfDays: int):
     parser = argparse.ArgumentParser()
@@ -30,7 +33,10 @@ def main() -> None:
         day06.run,
         day07.run,
         day08.run,
-        day09.run
+        day09.run,
+        day10.run,
+        day11.run,
+        day12.run
     ]
 
     args = get_arguments(len(days))
