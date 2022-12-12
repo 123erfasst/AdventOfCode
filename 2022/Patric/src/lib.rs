@@ -4,6 +4,7 @@ use std::fmt::Display;
 
 pub trait Solution<const DAY: u8> {
     type Output: Display;
+
     fn part1(&self, input: &str) -> Self::Output;
     fn part2(&self, input: &str) -> Option<Self::Output> {
         let _ = input;
@@ -26,16 +27,14 @@ impl Runner<'_> {
         println!("Day {:02}", DAY);
         println!("--------");
 
-        println!("Part 1:");
         let result = solution.part1(input);
-        println!("Result: {}", result);
+        println!("Part 1:\n{}", result);
 
-        println!("Part 2:");
         let result = solution.part2(input);
         if let Some(result) = result {
-            println!("Result: {}", result);
+            println!("Part 2:\n{}", result);
         } else {
-            println!("Result: Not solved");
+            println!("Part 2:\nNot solved");
         }
     }
 }
@@ -49,3 +48,5 @@ pub mod day6;
 pub mod day7;
 pub mod day8;
 pub mod day9;
+pub mod day10;
+pub mod day11;
