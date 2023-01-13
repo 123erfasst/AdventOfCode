@@ -1,9 +1,9 @@
-#![feature(iter_array_chunks)]
+#![feature(iter_array_chunks, array_windows)]
 
 mod days;
 mod helper;
 
-use days::{day01, day03, day07};
+use days::{day01, day02, day03, day04, day06, day07, day08, day09};
 use helper::solution::{Solution, SolutionPair};
 use std::{env, time::Instant};
 fn main() {
@@ -49,8 +49,13 @@ fn main() {
 fn get_day_solver(day: u8) -> fn() -> SolutionPair {
     match day {
         1 => day01::solve,
+        2 => day02::solve,
         3 => day03::solve,
+        4 => day04::solve,
+        6 => day06::solve,
         7 => day07::solve,
+        8 => day08::solve,
+        9 => day09::solve,
         _ => unimplemented!(),
     }
 }
