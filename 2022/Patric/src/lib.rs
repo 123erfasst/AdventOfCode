@@ -1,6 +1,8 @@
 #![feature(iter_array_chunks, array_windows)]
 #![feature(assert_matches)]
 #![feature(array_zip)]
+#![deny(clippy::all)]
+#![warn(clippy::pedantic)]
 
 use std::fmt::Display;
 
@@ -19,6 +21,7 @@ pub struct Runner<'a> {
 }
 
 impl Runner<'_> {
+    #[must_use]
     pub fn new(input: &'_ str) -> Runner<'_> {
         Runner { input }
     }
@@ -26,15 +29,15 @@ impl Runner<'_> {
     pub fn run<const DAY: u8, S: Solution<DAY>>(&'_ self, solution: &S) {
         let input = &self.input.replace("\r\n", "\n");
         println!("--------");
-        println!("Day {:02}", DAY);
+        println!("Day {DAY:02}");
         println!("--------");
 
         let result = solution.part1(input);
-        println!("Part 1:\n{}", result);
+        println!("Part 1:\n{result}");
 
         let result = solution.part2(input);
         if let Some(result) = result {
-            println!("Part 2:\n{}", result);
+            println!("Part 2:\n{result}");
         } else {
             println!("Part 2:\nNot solved");
         }
@@ -55,6 +58,10 @@ pub mod day19;
 pub mod day2;
 pub mod day20;
 pub mod day21;
+pub mod day22;
+pub mod day23;
+pub mod day24;
+pub mod day25;
 pub mod day3;
 pub mod day4;
 pub mod day5;
