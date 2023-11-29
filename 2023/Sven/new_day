@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "Expected file ending"
+    exit;
+fi
+
+year=$(date +%Y)
+day=$(date +%d)
+
+cp src/template.$1 src/day$day.$1
