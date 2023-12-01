@@ -1,5 +1,4 @@
 import 'aoc/helper.dart';
-import 'package:collection/collection.dart';
 
 String input = "";
 
