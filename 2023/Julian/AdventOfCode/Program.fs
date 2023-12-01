@@ -2,4 +2,4 @@
 
 let result = Day01.Solution.solve()
 
-printfn "%O" result
+printfn "%A" result
