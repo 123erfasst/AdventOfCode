@@ -13,6 +13,7 @@ fn main() {
 
     match day {
         1 => Runner::new(include_str!("../inputs/day01.txt")).run(&day1::Day1),
+        2 => Runner::new(include_str!("../inputs/day02.txt")).run(&day2::Day2),
         _ => panic!("Could not find day {day}"),
     }
 }

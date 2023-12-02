@@ -24,5 +24,6 @@ macro_rules! bench_day {
 }
 
 bench_day!(day01, day1::Day1);
+bench_day!(day02, day2::Day2);
 
-criterion_main!(day01,);
+criterion_main!(day01, day02);
