@@ -19,13 +19,14 @@ $lines
 
 # part 2
 
-$lines = 'two1nine
+$lines = 
+'two1nine
 eightwothree
 abcone2threexyz
 xtwone3four
 4nineeightseven2
 zoneight234
-7pqrstsixteen' -split '\n'
+7pqrstsixteen' -split '\r?\n'
 
 $dict = @{
     '1'     = 1
