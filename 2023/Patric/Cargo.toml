@@ -12,8 +12,8 @@ fxhash = "0.2"
 indoc = "2.0"
 itertools = "0.12"
 nom = "7.1"
-rayon = "1.8"
 paste = "1.0"
+rayon = "1.8"
 
 [dev-dependencies]
 criterion = { version = "0.5.1" }
