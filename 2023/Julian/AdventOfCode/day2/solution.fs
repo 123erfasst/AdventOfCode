@@ -72,19 +72,15 @@ module Solution =
         |> Seq.map (fun game -> game.ID)
         |> Seq.sum
 
+    let getMaxCount (getColor: Round -> int) (game: Game) =
+        game.Rounds 
+            |> Seq.map getColor 
+            |> Seq.max
+
     let calculatePower (game: Game) =
-        let maxRed = 
-            game.Rounds 
-            |> Seq.map (fun round -> round.Red) 
-            |> Seq.max
-        let maxBlue = 
-            game.Rounds 
-            |> Seq.map (fun round -> round.Blue) 
-            |> Seq.max
-        let maxGreen = 
-            game.Rounds 
-            |> Seq.map (fun round -> round.Green) 
-            |> Seq.max
+        let maxRed = getMaxCount (fun round -> round.Red) game
+        let maxBlue = getMaxCount (fun round -> round.Blue) game
+        let maxGreen = getMaxCount (fun round -> round.Green) game
 
         maxRed * maxBlue * maxGreen
 
