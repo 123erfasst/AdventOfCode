@@ -53,15 +53,15 @@ fn parse_game(line: &str) -> IResult<&str, (u32, bool, u32)> {
                     match color {
                         "red" => {
                             valid &= amount <= 12;
-                            r = r.max(amount)
+                            r = r.max(amount);
                         }
                         "green" => {
                             valid &= amount <= 13;
-                            g = g.max(amount)
+                            g = g.max(amount);
                         }
                         "blue" => {
                             valid &= amount <= 14;
-                            b = b.max(amount)
+                            b = b.max(amount);
                         }
                         _ => unreachable!(),
                     }
