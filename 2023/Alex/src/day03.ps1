@@ -1,5 +1,3 @@
-$lines = Get-Content 'resources/day03.txt'
-
 $lines = 
 '467..114..
 ...*......
@@ -11,6 +9,8 @@ $lines =
 ......755.
 ...$.*....
 .664.598..' -split '\r?\n'
+
+$lines = Get-Content 'resources/day03.txt'
 
 $nums = 0..($lines.Length - 1)
 | ForEach-Object {
