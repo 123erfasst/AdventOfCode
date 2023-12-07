@@ -1,7 +1,5 @@
 use crate::Solution;
-use fxhash::{FxBuildHasher, FxHasher};
-use std::collections::HashMap;
-use std::hash::BuildHasherDefault;
+use ahash::AHashMap;
 use std::ops::Add;
 
 pub struct Day3;
@@ -25,11 +23,9 @@ impl Solution<3> for Day3 {
     }
 }
 
-fn parse_symbols_with_adjacent(
-    input: &str,
-) -> HashMap<(Position, char), Vec<u32>, BuildHasherDefault<FxHasher>> {
+fn parse_symbols_with_adjacent(input: &str) -> AHashMap<(Position, char), Vec<u32>> {
     let lines = input.lines().map(str::as_bytes).collect::<Vec<_>>();
-    let mut symbols = HashMap::with_hasher(FxBuildHasher::default());
+    let mut symbols = AHashMap::default();
     for (row, line) in lines.iter().enumerate() {
         let mut col = 0;
         while col < line.len() {

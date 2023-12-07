@@ -3,7 +3,11 @@
 #![deny(clippy::all)]
 #![warn(clippy::pedantic)]
 
+use mimalloc::MiMalloc;
 use std::fmt::Display;
+
+#[global_allocator]
+static GLOBAL: MiMalloc = MiMalloc;
 
 pub trait Solution<const DAY: u8> {
     type Output: Display;
