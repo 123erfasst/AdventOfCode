@@ -17,11 +17,12 @@ fn main() {
         || Runner::new(include_str!("../inputs/day04.txt")).run(&day4::Day4),
         || Runner::new(include_str!("../inputs/day05.txt")).run(&day5::Day5),
         || Runner::new(include_str!("../inputs/day06.txt")).run(&day6::Day6),
+        || Runner::new(include_str!("../inputs/day07.txt")).run(&day7::Day7),
     ];
 
     match day {
         Some(day) if day <= days.len() as u8 => days[day as usize - 1](),
         Some(day) => panic!("No solution for day {}", day),
-        None => days.iter().for_each(|d| d())
+        None => days.iter().for_each(|d| d()),
     }
 }
