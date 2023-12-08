@@ -9,6 +9,10 @@
     <Compile Include="day3/solution.fs" />
     <Compile Include="day4/solution.fs" />
     <Compile Include="day5/solution.fs" />
+    <Compile Include="day6/solution.fs" />
     <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FParsec" Version="1.1.1" />
   </ItemGroup>
 </Project>
