@@ -20,6 +20,7 @@ fn main() {
         || Runner::new(include_str!("../inputs/day07.txt")).run(&day7::Day7),
         || Runner::new(include_str!("../inputs/day08.txt")).run(&day8::Day8),
         || Runner::new(include_str!("../inputs/day09.txt")).run(&day9::Day9),
+        || Runner::new(include_str!("../inputs/day10.txt")).run(&day10::Day10),
     ];
 
     match day {
