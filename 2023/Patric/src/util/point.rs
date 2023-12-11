@@ -15,6 +15,22 @@ impl<T> Point2D<T> {
     }
 }
 
+impl<T: Sub<Output = T> + Ord + Copy + Add<Output = T>> Point2D<T> {
+    #[inline]
+    #[must_use]
+    pub fn manhattan_distance(self, rhs: Self) -> T {
+        abs_difference(self.x, rhs.x) + abs_difference(self.y, rhs.y)
+    }
+}
+
+fn abs_difference<T: Sub<Output = T> + Ord + Copy>(x: T, y: T) -> T {
+    if x < y {
+        y - x
+    } else {
+        x - y
+    }
+}
+
 impl<T: Default> Default for Point2D<T> {
     fn default() -> Self {
         Point2D::new(T::default(), T::default())
