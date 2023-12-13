@@ -4,10 +4,21 @@
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="helper/CircularCollection.fs" />
     <Compile Include="day1/solution.fs" />
     <Compile Include="day2/solution.fs" />
     <Compile Include="day3/solution.fs" />
     <Compile Include="day4/solution.fs" />
+    <Compile Include="day5/solution.fs" />
+    <Compile Include="day6/solution.fs" />
+    <Compile Include="day7/solution.fs" />
+    <Compile Include="day8/solution.fs" />
+    <Compile Include="day9/solution.fs" />
+    <Compile Include="day10/solution.fs" />
+    <Compile Include="day11/solution.fs" />
     <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FParsec" Version="1.1.1" />
   </ItemGroup>
 </Project>

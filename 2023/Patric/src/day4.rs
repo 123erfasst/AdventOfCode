@@ -1,5 +1,5 @@
 use crate::Solution;
-use fxhash::FxHashSet;
+use ahash::AHashSet;
 use nom::IResult;
 use rayon::prelude::*;
 
@@ -61,8 +61,8 @@ fn parse_card(line: &str) -> IResult<&str, Card> {
 }
 
 struct Card {
-    winning: FxHashSet<u32>,
-    have: FxHashSet<u32>,
+    winning: AHashSet<u32>,
+    have: AHashSet<u32>,
 }
 
 impl Card {

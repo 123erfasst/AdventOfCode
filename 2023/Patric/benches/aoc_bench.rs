@@ -29,5 +29,14 @@ bench_day!(day03, day3::Day3);
 bench_day!(day04, day4::Day4);
 bench_day!(day05, day5::Day5);
 bench_day!(day06, day6::Day6);
+bench_day!(day07, day7::Day7);
+bench_day!(day08, day8::Day8);
+bench_day!(day09, day9::Day9);
+bench_day!(day10, day10::Day10);
+bench_day!(day11, day11::Day11);
+bench_day!(day12, day12::Day12);
+bench_day!(day13, day13::Day13);
 
-criterion_main!(day01, day02, day03, day04, day05, day06);
+criterion_main!(
+    day01, day02, day03, day04, day05, day06, day07, day08, day09, day10, day11, day12, day13
+);
