@@ -13,7 +13,7 @@ impl Solution<15> for Day15 {
 
     fn part1(&self, input: &str) -> Self::Output {
         input
-            .trim_end_matches("\n")
+            .trim_end_matches('\n')
             .split(',')
             .map(hash)
             .map(|h| h as usize)
@@ -22,7 +22,7 @@ impl Solution<15> for Day15 {
 
     fn part2(&self, input: &str) -> Option<Self::Output> {
         let boxes = input
-            .trim_end_matches("\n")
+            .trim_end_matches('\n')
             .split(',')
             .map(|instr| Instruction::parse(instr).expect("Format").1)
             .fold(vec![vec![]; 256], |mut boxes, instruction| {
@@ -58,7 +58,7 @@ struct Lens<'a> {
 }
 
 impl<'a> Instruction<'a> {
-    fn apply_to(&self, boxes: &mut Vec<Vec<Lens<'a>>>) {
+    fn apply_to(&self, boxes: &mut [Vec<Lens<'a>>]) {
         let a_box = &mut boxes[hash(self.label) as usize];
         let lens_position = a_box
             .iter()
