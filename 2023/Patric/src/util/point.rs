@@ -1,7 +1,7 @@
 use std::ops::{Add, AddAssign, Mul, Sub, SubAssign};
 
 #[allow(clippy::module_name_repetitions)]
-#[derive(Debug, Eq, PartialEq, Copy, Clone)]
+#[derive(Debug, Eq, PartialEq, Copy, Clone, Hash)]
 pub struct Point2D<T> {
     pub x: T,
     pub y: T,
