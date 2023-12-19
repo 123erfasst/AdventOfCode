@@ -40,8 +40,9 @@ bench_day!(day14, day14::Day14);
 bench_day!(day15, day15::Day15);
 bench_day!(day16, day16::Day16);
 bench_day!(day17, day17::Day17);
+bench_day!(day18, day18::Day18);
 
 criterion_main!(
     day01, day02, day03, day04, day05, day06, day07, day08, day09, day10, day11, day12, day13,
-    day14, day15, day16, day17
+    day14, day15, day16, day17, day18
 );

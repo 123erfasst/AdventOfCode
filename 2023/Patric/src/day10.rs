@@ -23,16 +23,12 @@ impl Solution<10> for Day10 {
                     if char == '-' || char == '|' {
                         (steps + 1, area, corner)
                     } else {
-                        (steps + 1, area + determinant(corner, pos), pos)
+                        (steps + 1, area + Point2D::determinant(corner, pos), pos)
                     }
                 });
 
         Some(area.unsigned_abs() / 2 - steps / 2 + 1)
     }
-}
-
-fn determinant(a: Point2D<i64>, b: Point2D<i64>) -> i64 {
-    a.x * b.y - a.y * b.x
 }
 
 pub const UP: Point2D<i64> = Point2D::new(-1, 0);

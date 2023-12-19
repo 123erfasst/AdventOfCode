@@ -31,6 +31,14 @@ fn abs_difference<T: Sub<Output = T> + Ord + Copy>(x: T, y: T) -> T {
     }
 }
 
+impl<T: Mul<T, Output = T> + Sub<Output = T> + Copy> Point2D<T> {
+    #[inline]
+    #[must_use]
+    pub fn determinant(a: Self, b: Self) -> T {
+        a.x * b.y - a.y * b.x
+    }
+}
+
 impl<T: Default> Default for Point2D<T> {
     fn default() -> Self {
         Point2D::new(T::default(), T::default())
