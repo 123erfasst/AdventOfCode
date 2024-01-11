@@ -1,5 +1,5 @@
 ﻿open AdventOfCode
 
-let result = Day11.Solution.solve()
+let result = Day13.Solution.solve()
 
 printfn "%A" result

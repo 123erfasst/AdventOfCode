@@ -47,7 +47,7 @@ fn sum_distances(points: &[Point]) -> usize {
     points
         .iter()
         .tuple_combinations()
-        .map(|(a, &b)| a.manhattan_distance(b))
+        .map(|(a, &b)| a.manhattan_distance(&b))
         .sum()
 }
 

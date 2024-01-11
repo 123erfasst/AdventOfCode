@@ -9,7 +9,9 @@ impl Solution<13> for Day13 {
 
     fn part1(&self, input: &str) -> Self::Output {
         input
-            .par_split(&"\n\n".chars().collect::<Vec<_>>()[..])
+            .split("\n\n")
+            .collect::<Vec<_>>()
+            .par_iter()
             .filter_map(|input| Pattern::parse(input).ok())
             .filter_map(|(_, pattern)| pattern.reflections(0))
             .sum()
@@ -18,7 +20,9 @@ impl Solution<13> for Day13 {
     fn part2(&self, input: &str) -> Option<Self::Output> {
         Some(
             input
-                .par_split(&"\n\n".chars().collect::<Vec<_>>()[..])
+                .split("\n\n")
+                .collect::<Vec<_>>()
+                .par_iter()
                 .filter_map(|input| Pattern::parse(input).ok())
                 .filter_map(|(_, pattern)| pattern.reflections(1))
                 .sum(),
@@ -34,14 +38,14 @@ struct Pattern {
 
 impl Pattern {
     fn reflections(&self, smudges: u32) -> Option<usize> {
-        if let Some(x) = Pattern::find_reflection(&self.rows, smudges) {
+        if let Some(x) = Pattern::reflect(&self.rows, smudges) {
             Some(x * 100)
         } else {
-            Pattern::find_reflection(&self.cols, smudges)
+            Pattern::reflect(&self.cols, smudges)
         }
     }
 
-    fn find_reflection(axis: &[u32], smudges: u32) -> Option<usize> {
+    fn reflect(axis: &[u32], smudges: u32) -> Option<usize> {
         let size = axis.len();
         (1..size).find(|&i| {
             (0..i.min(size - i)).fold(0, |smudge_count, j| {

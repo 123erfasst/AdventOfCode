@@ -128,8 +128,24 @@ module Solution =
         |> List.length
         |> (fun x -> x / 2)
 
+    let determinant (aX, aY) (bX, bY) = 
+        aX * bY - aY * bX
+
     let solvePart2 (input: string array) = 
-        Some(1)
+        let pipeMap = parseInput input
+        let (steps, area, _) = 
+            findCircle pipeMap
+            |> List.fold (
+                fun (steps, area, corner) newPos ->
+                    let currentTile = Map.find newPos pipeMap.Pipes
+
+                    match currentTile with
+                    | NorthAndSouth -> (steps + 1, area, corner)
+                    | EastAndWest -> (steps + 1, area, corner)
+                    | _ -> (steps + 1, area + determinant corner newPos, newPos)
+                    ) (0, 0, pipeMap.StartPosition)
+
+        Math.Abs(area) / 2 - steps / 2 + 1
 
     let testInput1 = [|
         "-L|F7";

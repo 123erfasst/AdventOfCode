@@ -1,7 +1,7 @@
 use std::ops::{Add, AddAssign, Mul, Sub, SubAssign};
 
 #[allow(clippy::module_name_repetitions)]
-#[derive(Debug, Eq, PartialEq, Copy, Clone)]
+#[derive(Debug, Eq, PartialEq, Copy, Clone, Hash)]
 pub struct Point2D<T> {
     pub x: T,
     pub y: T,
@@ -18,7 +18,7 @@ impl<T> Point2D<T> {
 impl<T: Sub<Output = T> + Ord + Copy + Add<Output = T>> Point2D<T> {
     #[inline]
     #[must_use]
-    pub fn manhattan_distance(self, rhs: Self) -> T {
+    pub fn manhattan_distance(self, rhs: &Self) -> T {
         abs_difference(self.x, rhs.x) + abs_difference(self.y, rhs.y)
     }
 }
@@ -28,6 +28,14 @@ fn abs_difference<T: Sub<Output = T> + Ord + Copy>(x: T, y: T) -> T {
         y - x
     } else {
         x - y
+    }
+}
+
+impl<T: Mul<T, Output = T> + Sub<Output = T> + Copy> Point2D<T> {
+    #[inline]
+    #[must_use]
+    pub fn determinant(a: Self, b: Self) -> T {
+        a.x * b.y - a.y * b.x
     }
 }
 

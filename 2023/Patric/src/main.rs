@@ -24,6 +24,11 @@ fn main() {
         || Runner::new(include_str!("../inputs/day11.txt")).run(&day11::Day11),
         || Runner::new(include_str!("../inputs/day12.txt")).run(&day12::Day12),
         || Runner::new(include_str!("../inputs/day13.txt")).run(&day13::Day13),
+        || Runner::new(include_str!("../inputs/day14.txt")).run(&day14::Day14),
+        || Runner::new(include_str!("../inputs/day15.txt")).run(&day15::Day15),
+        || Runner::new(include_str!("../inputs/day16.txt")).run(&day16::Day16),
+        || Runner::new(include_str!("../inputs/day17.txt")).run(&day17::Day17),
+        || Runner::new(include_str!("../inputs/day18.txt")).run(&day18::Day18),
     ];
 
     match day {
