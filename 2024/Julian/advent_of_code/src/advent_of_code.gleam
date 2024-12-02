@@ -2,6 +2,7 @@ import argv
 import gleam/io
 import gleam/result
 import solutions/day1
+import solutions/day2
 import utils/input.{read_day_input}
 import utils/solution.{Solution}
 
@@ -35,6 +36,11 @@ pub fn solve_day(
     "1", Ok(unwrapped_input) -> {
       use part_one <- result.try(day1.solve_part_one(unwrapped_input))
       use part_two <- result.try(day1.solve_part_two(unwrapped_input))
+      Ok(Solution(part_one, part_two))
+    }
+    "2", Ok(unwrapped_input) -> {
+      use part_one <- result.try(day2.solve_part_one(unwrapped_input))
+      use part_two <- result.try(day2.solve_part_two(unwrapped_input))
       Ok(Solution(part_one, part_two))
     }
     _, Error(err) -> Error(err)
