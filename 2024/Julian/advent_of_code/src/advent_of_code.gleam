@@ -1,3 +1,4 @@
+import solutions/day3
 import argv
 import gleam/io
 import gleam/result
@@ -41,6 +42,11 @@ pub fn solve_day(
     "2", Ok(unwrapped_input) -> {
       use part_one <- result.try(day2.solve_part_one(unwrapped_input))
       use part_two <- result.try(day2.solve_part_two(unwrapped_input))
+      Ok(Solution(part_one, part_two))
+    }
+    "3", Ok(unwrapped_input) -> {
+      use part_one <- result.try(day3.solve_part_one(unwrapped_input))
+      use part_two <- result.try(day3.solve_part_two(unwrapped_input))
       Ok(Solution(part_one, part_two))
     }
     _, Error(err) -> Error(err)
