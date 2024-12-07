@@ -7,6 +7,7 @@ import solutions/day3
 import solutions/day4
 import solutions/day5
 import solutions/day6
+import solutions/day7
 import utils/input.{read_day_input}
 import utils/solution.{Solution}
 
@@ -65,6 +66,11 @@ pub fn solve_day(
     "6", Ok(unwrapped_input) -> {
       use part_one <- result.try(day6.solve_part_one(unwrapped_input))
       use part_two <- result.try(day6.solve_part_two(unwrapped_input))
+      Ok(Solution(part_one, part_two))
+    }
+    "7", Ok(unwrapped_input) -> {
+      use part_one <- result.try(day7.solve_part_one(unwrapped_input))
+      use part_two <- result.try(day7.solve_part_two(unwrapped_input))
       Ok(Solution(part_one, part_two))
     }
     _, Error(err) -> Error(err)
